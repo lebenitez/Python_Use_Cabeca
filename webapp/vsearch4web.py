@@ -36,4 +36,5 @@ def entry_page() -> 'html':
  A medida que desenvolvo ele vai tentando já exibir o resultado. 
  Para ativar basta colocar debug=True, para inativar remover.'''
 
-app.run(debug=True)
+if __name__=='__main__':
+    app.run(debug=True)
