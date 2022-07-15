@@ -1,4 +1,3 @@
-from cgitb import html
 from flask import Flask, render_template
 from vsearch import search4letters
 
@@ -10,11 +9,13 @@ def hello() -> str:
 
 @app.route('/search4')
 def do_search() -> str:
-    return str(search4letters('life, the universe, and everything', 'eiru,!'))
+    return str(search4letters('Miguel e Manuela', 'eiru,!'))
 
 @app.route('/entry')
-def entry_page() -> 'html':
-    return render_template('entry.html',
-            the_title='Welcome to search4letters on the web!')
+def entry_page():
+    return render_template('entry.html')
+    
+'''A função debug permite que eu não precise ficar parando e iniciando o serviço. 
+ A medida que desenvolvo ele vai tentando já exibir o resultado. '''
 
-app.run()
+app.run(debug=True)
